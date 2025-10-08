@@ -1,3 +1,6 @@
-// Simple proxy so Cloudflare can read the config
-import config from "./next.config.ts";
-export default config;
+/** @type {import('next').NextConfig} */
+
+module.exports = {
+  images: { unoptimized: true },
+  eslint: { ignoreDuringBuilds: true },
+};
