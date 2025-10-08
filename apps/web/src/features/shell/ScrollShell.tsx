@@ -40,24 +40,44 @@ export default function ScrollShell() {
     return () => ro.disconnect();
   }, []);
 
+  function getScrollEl() {
+    // desktop: SimpleBar
+    const sbEl = barRef.current?.getScrollElement?.();
+    if (sbEl) return sbEl as HTMLElement;
+    // mobile: native div
+    return document.getElementById("scroll-shell") || window; // window as last resort
+  }
+
   // Simple nav event: scroll to a section id
   useEffect(() => {
-    function onNavGo(e: Event) {
-      const { id } = (e as CustomEvent).detail ?? {};
-      if (!id) return;
-      const el: HTMLElement | null = barRef.current?.getScrollElement?.() ?? null;
-      if (!el) return;
-      const node = el.querySelector<HTMLElement>(`[data-section-id="${id}"]`);
-      if (node) node.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-    window.addEventListener("nav:go", onNavGo as EventListener);
-    return () => window.removeEventListener("nav:go", onNavGo as EventListener);
-  }, []);
+  const scrollToSection = (id: string) => {
+    const node = document.querySelector<HTMLElement>(`[data-section-id="${id}"]`);
+    if (!node) return;
+
+    // This scrolls the nearest scrollable ancestor automatically
+    node.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const onNavGo = (e: Event) => {
+    const id = (e as CustomEvent).detail?.id as string | undefined;
+    if (id) scrollToSection(id);
+  };
+
+  window.addEventListener("nav:go", onNavGo as EventListener);
+
+  // support deep links like /#about
+  if (location.hash) {
+    // wait a tick to ensure sections are mounted
+    requestAnimationFrame(() => scrollToSection(location.hash.slice(1)));
+  }
+
+  return () => window.removeEventListener("nav:go", onNavGo as EventListener);
+}, []);
 
   return (
     <div className={styles.root}>
       {isMobile ? (
-        <div className="h-dvh overflow-y-auto overflow-x-hidden">
+        <div id="scroll-shell" className="h-dvh overflow-y-auto overflow-x-hidden scroll-smooth">
           {sections}
         </div>
       ) : (

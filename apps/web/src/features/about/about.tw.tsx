@@ -28,7 +28,7 @@ export const PhotoWrap = tw.div`
   border-[15px]              /* adjust thickness */
   border-[var(--site-foreground)]
   bg-[color-mix(in_srgb,var(--site-background)_80%,transparent)]
-  w-[320px] h-[320px]       /* optional: fix dimensions for perfect circle */
+  w-[250px] h-[250px]       /* optional: fix dimensions for perfect circle */
   overflow-hidden
 `;
 export const TextCol = tw.div`space-y-4`;

@@ -29,11 +29,11 @@ export default function CatchPhraseSection() {
         </PrimaryButton>
 
         <SecondaryButton
-          onClick={() =>
+          onClick={() => {
             window.dispatchEvent(
               new CustomEvent("nav:go", { detail: { id: "about" } })
             )
-          }
+          }}
         >
           Learn&nbsp;More
         </SecondaryButton>

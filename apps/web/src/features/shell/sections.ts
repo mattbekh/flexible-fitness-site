@@ -9,11 +9,8 @@ export type SectionSpec = {
 };
 
 export const sections: SectionSpec[] = [
-  // { id: "landing", loader: () => import("@/features/landing/LandingSection") },
-  { id: "catchphrase", loader: () => import("@/features/catchPhrase/CatchPhraseSection") }, // ← new
+  { id: "catchphrase", loader: () => import("@/features/catchPhrase/CatchPhraseSection") },
   { id: "about",       loader: () => import("@/features/about/AboutSectionWrapper") }, 
   { id: "book", loader: () => import("@/features/book/BookSection") },
-    { id: "contact",     loader: () => import("@/features/contact/ContactSection") }, // ← new
-
-  // { id: "media", loader: () => import("@/features/media/MediaSection") },
+  { id: "contact",     loader: () => import("@/features/contact/ContactSection") },
 ];
