@@ -3,8 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 "use client";
-// @ts-expect-error
-import "simplebar-react/dist/simplebar.min.css";/* eslint-disable @typescript-eslint/no-explicit-any */
+import "simplebar-react/dist/simplebar.min.css";
 import { Suspense, useEffect, useRef, useState } from "react";
 import SimpleBar from "simplebar-react";
 import styles from "./shell.simplebar.module.css";
