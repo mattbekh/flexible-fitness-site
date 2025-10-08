@@ -13,6 +13,18 @@ export default function ScrollShell() {
   // Load everything (simplest & most stable)
   const [loaded] = useState<SectionSpec[]>(registry);
   const barRef = useRef<any>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  const sections = loaded.map(({ id, loader }) => (
+    <SectionLoader key={id} id={id} loader={loader} />
+  ));
 
   // Recalculate SimpleBar when inner content layout changes (iframes, images, fonts)
   useEffect(() => {
@@ -44,6 +56,11 @@ export default function ScrollShell() {
 
   return (
     <div className={styles.root}>
+      {isMobile ? (
+        <div className="h-dvh overflow-y-auto overflow-x-hidden">
+          {sections}
+        </div>
+      ) : (
       <SimpleBar
         className={styles.bar}
         autoHide={false}
@@ -56,6 +73,7 @@ export default function ScrollShell() {
         {/* tiny spacer to guarantee the thumb can reach absolute bottom */}
         <div style={{ height: 2 }} />
       </SimpleBar>
+      )}
     </div>
   );
 }
