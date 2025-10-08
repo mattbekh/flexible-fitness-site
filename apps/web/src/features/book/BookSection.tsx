@@ -46,7 +46,7 @@ export default function BookSection() {
           ref={ref}
           className="calendly-inline-widget"
           // Replace with your real scheduling link (event type):
-          data-url="https://calendly.com/sgt_bum/30min"
+          data-url="https://calendly.com/gabrieljamesbaron/30min"
           style={{ minWidth: "320px", height: "890px" }}
         />
       </Card>
