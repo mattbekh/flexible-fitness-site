@@ -1,0 +1,16 @@
+/* A tall stage (e.g., 200vh) with a sticky 100vh viewport inside it. */
+
+.stage {
+  position: relative;
+  height: 100vh;
+  background: var(--site-background);   /* use global */
+}
+
+.stickyViewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;      /* stays pinned while the stage scrolls underneath */
+  overflow: hidden;   /* keep things clean */
+  display: grid;
+  place-items: center;
+}

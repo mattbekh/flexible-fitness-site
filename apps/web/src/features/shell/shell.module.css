@@ -1,0 +1,18 @@
+.shell {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;            /* kill horizontal scroll */
+  background: var(--site-background);
+  color: var(--site-foreground);
+  scroll-behavior: smooth;
+  overscroll-behavior-y: contain; /* prevent rubber-band reaching body */
+}
+
+/* Optional: hide native vertical scrollbar (content still scrolls) */
+.hideScrollbars {
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE/old Edge */
+}
+.hideScrollbars::-webkit-scrollbar {
+  display: none;                  /* Chrome/Safari/Edge (Chromium) */
+}

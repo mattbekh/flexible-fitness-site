@@ -1,0 +1,45 @@
+/* Masked logo video — scoped to this feature */
+
+.track {
+  --progress: 0; /* inherited from parent via JS */
+  transform: translateX(calc(var(--progress) * 35vw));
+  transition: transform 30ms linear;
+  will-change: transform;
+}
+.fadeOnExit { opacity: calc(1 - var(--progress) * 0.25); }
+
+.stage {
+  padding-block: clamp(4rem, 8vh, 8rem);
+}
+
+.maskBox {
+  position: relative;
+  width: min(90vw, 1400px); /* wide, bold */
+  aspect-ratio: 16 / 7;     /* tune to your logo’s ratio */
+  margin-inline: auto;
+
+  /* defaults; can be overridden via inline CSS vars */
+  --mask-size: contain;
+  --mask-position: center;
+
+  /* Standard mask */
+  mask-image: var(--mask-image);
+  mask-repeat: no-repeat;
+  mask-position: var(--mask-position);
+  mask-size: var(--mask-size);
+  mask-mode: alpha;
+
+  /* WebKit/Safari */
+  -webkit-mask-image: var(--mask-image);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: var(--mask-position);
+  -webkit-mask-size: var(--mask-size);
+}
+
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fill the letters with moving pixels */
+}

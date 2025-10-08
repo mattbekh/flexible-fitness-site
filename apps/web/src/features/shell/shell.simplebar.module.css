@@ -1,0 +1,39 @@
+.root {
+  height: 100dvh; /* mobile-safe viewport height */
+  background: var(--site-background);
+  color: var(--site-foreground);
+}
+
+.bar {
+  height: 100%;
+}
+
+/* Ensure SimpleBar's wrappers don't add padding that shortens scroll height */
+.bar :global(.simplebar-content-wrapper) { padding: 0 !important; }
+.bar :global(.simplebar-content) { margin: 0 !important; padding: 0 !important; }
+
+/* Track positioning only */
+.bar :global(.simplebar-track.simplebar-vertical) {
+  right: 12px;
+  width: 28px;
+  background: transparent;
+}
+
+/* Let SimpleBar control height/top of the thumb; we only style appearance */
+.bar :global(.simplebar-scrollbar) {
+  background: transparent !important; /* no default gray bar */
+  width: 28px; /* large hit area */
+}
+
+/* Visual thumb (no hardcoded height) */
+.bar :global(.simplebar-scrollbar::before) {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  inset-block: 0;     /* fill vertical space provided by SimpleBar */
+  width: 12px;        /* thickness */
+  background: var(--accent);
+  border-radius: 9999px;
+  opacity: 0.9;
+}

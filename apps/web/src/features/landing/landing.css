@@ -1,0 +1,55 @@
+/* --- Video masked by your logo --- */
+
+/* Apply the mask to any element with .logoMask */
+/* Standard + webkit for broad support */
+.logoMask {
+  --mask-size: contain;              /* cover/contain based on your logo aspect */
+  --mask-position: center;
+  mask-image: url("/masks/134six-logo.svg");
+  mask-repeat: no-repeat;
+  mask-position: var(--mask-position);
+  mask-size: var(--mask-size);
+
+  -webkit-mask-image: url("/masks/134six-logo.svg");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: var(--mask-position);
+  -webkit-mask-size: var(--mask-size);
+}
+
+/* Make the masked element preserve aspect by using padding-box helpers if needed */
+.logoMaskBox {
+  position: relative;
+  width: min(90vw, 1400px);          /* wide, bold look */
+  aspect-ratio: 16/7;                /* adjust to your logo width/height ratio */
+  margin-inline: auto;
+}
+
+/* The <video> fills the mask box */
+.logoMaskBox > video,
+.logoMaskBox > .videoFill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Scroll-driven side motion for the masked logo --- */
+/* We'll update --progress (0->1) from a tiny hook. Translate X as you scroll. */
+
+.logoTrack {
+  --progress: 0;                     /* 0..1 set by JS */
+  transform: translateX(calc(var(--progress) * 35vw));
+  transition: transform 30ms linear; /* cheap, smooth updates */
+  will-change: transform;
+}
+
+/* Optional: fade a bit as it exits */
+.logoTrack.fadeOnExit {
+  opacity: calc(1 - var(--progress) * 0.25);
+}
+
+/* Helpful: a roomy stage so you can see the sideways move before next section fully covers it */
+.stagePadding {
+  padding-block: clamp(4rem, 8vh, 8rem);
+}
