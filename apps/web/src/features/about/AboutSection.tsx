@@ -31,6 +31,7 @@ import {
   EdgeFadeRight,
   ArrowPrev,
   ArrowNext,
+  ReviewItem,
 } from "./about.tw";
 import { useEffect, useRef, useState } from "react";
 
@@ -139,57 +140,39 @@ export default function AboutSection({ coach, features, reviews }: AboutSectionP
         ))}
       </FeaturesGrid>
 
-      {/* Reviews */}
-      {reviews?.length ? (
+      {/* {reviews?.length ? (
         <ReviewsWrap>
-          <SectionTitleRow className="mt-8">
-            <h3 className="font-heading text-2xl md:text-3xl tracking-tight">What Clients Say</h3>
-          </SectionTitleRow>
-
           <ReviewsTrack>
-            <ReviewsControls>
-              {/* fades */}
-              <EdgeFadeLeft />
-              <EdgeFadeRight />
-
-              {/* scroller */}
-              <ReviewsScroller ref={scrollerRef} role="list">
-                {reviews.map((r, i) => (
-                  <ReviewCard key={i} data-review-card role="listitem" aria-label={`Review by ${r.author}`}>
+            <ReviewsScroller ref={scrollerRef} role="list">
+              {reviews.map((r, i) => (
+                <ReviewItem key={i} role="listitem" aria-label={`Review by ${r.author}`}>
+                  <ReviewCard data-review-card>
                     <ReviewQuote>“{r.quote}”</ReviewQuote>
                     <ReviewMeta>
                       {r.author}{r.subtitle ? ` · ${r.subtitle}` : ""}
                     </ReviewMeta>
                   </ReviewCard>
-                ))}
-              </ReviewsScroller>
+                </ReviewItem>
+              ))}
+            </ReviewsScroller>
 
-              {/* arrows */}
-              {canPrev && (
-                <ArrowPrev
-                  aria-label="Previous reviews"
-                  onClick={() => jump(-1)}
-                >
-                  <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
-                    <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                </ArrowPrev>
-              )}
-
-              {canNext && (
-                <ArrowNext
-                  aria-label="Next reviews"
-                  onClick={() => jump(1)}
-                >
-                  <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
-                    <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                </ArrowNext>
-              )}
-            </ReviewsControls>
+            {canPrev && (
+              <ArrowPrev aria-label="Previous reviews" onClick={() => jump(-1)}>
+                <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
+                  <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </ArrowPrev>
+            )}
+            {canNext && (
+              <ArrowNext aria-label="Next reviews" onClick={() => jump(1)}>
+                <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
+                  <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </ArrowNext>
+            )}
           </ReviewsTrack>
         </ReviewsWrap>
-      ) : null}
+      ) : null} */}
     </AboutRoot>
   );
 }

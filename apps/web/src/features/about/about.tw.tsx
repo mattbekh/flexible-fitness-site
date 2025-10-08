@@ -115,21 +115,35 @@ export const FeatureCtaText = tw.span`
 
 /* --- Reviews scroller --- */
 export const ReviewsWrap = tw.div`
-  pr-10 pl-10
+  max-w-6xl mx-auto w-full
 `;
 
+/* no negative margins; pad inside instead */
 export const ReviewsTrack = tw.div`
-  -mx-6 md:-mx-10 px-6 md:px-10 
+  relative px-4 sm:px-6 md:px-8
 `;
 
+/* horizontal scroller (no outer margins!) */
 export const ReviewsScroller = tw.div`
-  flex gap-6 md:gap-8 overflow-x-auto no-scrollbar
-  snap-x snap-mandatory pb-2 m-10
+  box-border
+  flex overflow-x-auto no-scrollbar
+  gap-4 sm:gap-6 md:gap-8
+  snap-x snap-mandatory
+  scroll-px-4 sm:scroll-px-6 md:scroll-px-8
+  pb-2
 `;
 
+export const ReviewItem = tw.div`
+  flex-shrink-0 snap-center
+  w-full                 /* 📱 mobile: one card per view */
+  sm:w-[60%]             /* tablets */
+  md:w-[45%]
+  lg:w-[36%]
+`;
+
+/* the card simply fills its wrapper */
 export const ReviewCard = tw.article`
-  snap-start
-  min-w-[85%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[36%]
+  w-full
   rounded-3xl p-6 md:p-7
   bg-white/70 dark:bg-black/30 backdrop-blur
   border border-[color-mix(in_srgb,var(--site-foreground)_15%,transparent)]
@@ -140,35 +154,28 @@ export const ReviewQuote = tw.p`
   font-body text-base md:text-lg leading-relaxed
   text-[color-mix(in_srgb,var(--site-foreground)_90%,black_10%)]
 `;
-
 export const ReviewMeta = tw.p`
   mt-4 font-heading text-sm uppercase tracking-wide
   text-[color-mix(in_srgb,var(--site-foreground)_70%,black_30%)]
 `;
 
 /* Controls wrapper sits over the scroller */
-export const ReviewsControls = tw.div`
-  relative
-`;
 
+
+export const ReviewsControls = tw.div`relative`;
 export const ArrowBtnBase = tw.button`
-  group absolute top-1/2 -translate-y-1/2 z-10
-  grid place-items-center
+  hidden sm:grid /* hide on phones */
+  place-items-center
+  absolute top-1/2 -translate-y-1/2 z-10
   w-11 h-11 rounded-full
-  bg-[var(--site-background)]/75 backdrop-blur border
+  bg-[var(--site-background)]/80 backdrop-blur border
   border-[color-mix(in_srgb,var(--site-foreground)_20%,transparent)]
   shadow-[0_10px_30px_-12px_rgba(0,0,0,0.35)]
   hover:bg-[var(--site-background)]
-  transition disabled:opacity-40 disabled:cursor-not-allowed
+  transition
 `;
-
-export const ArrowPrev = tw(ArrowBtnBase)`
-  -left-6 sm:-left-8 md:-left-10 lg:-left-12
-`;
-
-export const ArrowNext = tw(ArrowBtnBase)`
-  -right-6 sm:-right-8 md:-right-10 lg:-right-12
-`;
+export const ArrowPrev = tw(ArrowBtnBase)`-left-4 md:-left-6`;
+export const ArrowNext = tw(ArrowBtnBase)`-right-4 md:-right-6`;
 
 /* soft fade edges so arrows feel integrated */
 export const EdgeFadeLeft = tw.div`
