@@ -3,14 +3,11 @@ import tw from "tailwind-styled-components";
 /* Section wrapper & coach header (unchanged pieces kept) */
 export const AboutRoot = tw.section`
   min-h-screen w-full
-  flex flex-col gap-10 md:gap-14
-  px-6 md:px-10 py-12 md:py-16
+  flex flex-col gap-10 pt-15
   bg-[var(--site-background)]/5 text-[var(--site-foreground)]
 `;
 export const ContentWrap = tw.div`
-  grid gap-8 md:gap-12 items-center
-  md:grid-cols-[minmax(280px,380px)_1fr]
-  max-w-6xl mx-auto
+  grid place-items-center gap-8
 `;
 export const SectionTitleRow = tw.div`
   w-screen  /* span full viewport width */
@@ -31,7 +28,7 @@ export const PhotoWrap = tw.div`
   w-[250px] h-[250px]       /* optional: fix dimensions for perfect circle */
   overflow-hidden
 `;
-export const TextCol = tw.div`space-y-4`;
+export const TextCol = tw.div`space-y-4 pl-5 pr-5`;
 export const Heading = tw.h2`font-heading font-bold text-3xl md:text-5xl tracking-tight`;
 export const Subheading = tw.p`font-body text-lg md:text-xl opacity-80 m-0`;
 export const Credentials = tw.p`
