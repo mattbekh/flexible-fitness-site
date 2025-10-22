@@ -6,20 +6,24 @@
 .no-scrollbar::-webkit-scrollbar { display: none; }
 
 :root {
-  --site-background: #FFE8D1;  /* light background that pairs w/ accent-50 */
-  --site-foreground: #191d19;  /* accent-900 for readable body text */
-  --accent: #FFE8D1;
-  --main-light: #FFE8D1;
-  --main-dark: #191d19;
+    --site-background: #faf6ee;  /* light background that pairs w/ accent-50 */
+    --site-foreground: #444052;  /* accent-900 for readable body text */
+    --accent: #e39b7b;
+    --secondary-accent: #C08497;
+    --tertiary-accent: #F7AF9D;
+    --main-light: #444052;
+    --main-dark: #C08497;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --site-background: #191d19; /* brand-900 */
-    --site-foreground: #FFE8D1; /* accent-100 */
-    --accent: #113f31;
-    --main-light: #FFE8D1;
-    --main-dark: #191d19;
+    --site-background: #faf6ee;  /* light background that pairs w/ accent-50 */
+    --site-foreground: #444052;  /* accent-900 for readable body text */
+    --accent: #e39b7b;
+    --secondary-accent: #C08497;
+    --tertiary-accent: #F7AF9D;
+    --main-light: #444052;
+    --main-dark: #C08497;
   }
 }
 

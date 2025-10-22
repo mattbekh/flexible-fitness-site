@@ -5,15 +5,12 @@ export const ContactRoot = tw.section`
   gap-8 px-8 sm:px-12 md:px-20 pt-24 sm:pt-28 md:pt-32   /* top padding for nice offset */
   overflow-hidden
   bg-left bg-cover bg-no-repeat
-  bg-[url('/photos/image_alt2.png')]
-  before:absolute before:inset-0 
-  before:bg-[color-mix(in_srgb,var(--site-background)_0%,black_40%)]
-  before:backdrop-blur-[1px] before:-z-0
+  bg-[url('/photos/happy4.png')]
 `;
 
 export const ContactCard = tw.div`
   w-full max-w-3xl rounded-3xl border border-[color-mix(in_srgb,var(--site-foreground)_15%,transparent)]
-  bg-white/70 dark:bg-black/30 backdrop-blur
+  bg-white/70 dark:bg-black/10 dark:border-white/10 backdrop-blur
   p-6 md:p-10 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.25)]
 `;
 
