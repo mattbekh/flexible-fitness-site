@@ -7,10 +7,12 @@ import tw from "tailwind-styled-components";
 const Root = tw.section`
   min-h-screen grid place-items-center px-6 py-10
   bg-[var(--site-background)] text-[var(--site-foreground)]
+      bg-left bg-cover bg-no-repeat
+  bg-[url('/photos/happy3.png')]
 `;
 const Card = tw.div`
   w-full max-w-5xl rounded-3xl border border-black/10 bg-white/70 backdrop-blur
-  dark:bg-black/30 dark:border-white/10
+  dark:bg-black/10 dark:border-white/10
   p-4 sm:p-6 md:p-8 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.25)]
 `;
 const Title = tw.h2`font-heading text-3xl md:text-4xl tracking-tight mb-1`;

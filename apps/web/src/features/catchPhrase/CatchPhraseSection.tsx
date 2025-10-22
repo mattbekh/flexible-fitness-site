@@ -11,10 +11,10 @@ import {
 export default function CatchPhraseSection() {
   return (
     <CatchRoot>
-      <Phrase>{`Move Better.\nFeel Stronger.\nStay Flexible.`}</Phrase>
+      <Phrase>{`Train Smart.\nMove Freely.\nLive Fully.`}</Phrase>
 
       <Subphrase>
-        Personalized coaching that fits your lifestyle — online or in person.
+        Personalized coaching that fits your lifestyle.
       </Subphrase>
 
       <ButtonRow>

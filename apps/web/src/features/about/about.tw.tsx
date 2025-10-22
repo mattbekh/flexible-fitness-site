@@ -5,6 +5,8 @@ export const AboutRoot = tw.section`
   min-h-screen w-full
   flex flex-col gap-10 pt-15
   bg-[var(--site-background)]/5 text-[var(--site-foreground)]
+    bg-left bg-cover bg-no-repeat
+  bg-[url('/photos/happy1follow2.png')]
 `;
 export const ContentWrap = tw.div`
   grid place-items-center gap-8
@@ -22,13 +24,21 @@ export const PhotoWrap = tw.div`
   relative grid place-items-center
   p-0                       /* spacing between mask edge & border */
   rounded-full              /* make border circle */
-  border-[15px]              /* adjust thickness */
-  border-[var(--site-foreground)]
-  bg-[color-mix(in_srgb,var(--site-background)_80%,transparent)]
+  border-7
+  border-[var(--site-foreground)]/30
+  bg-white/30
   w-[250px] h-[250px]       /* optional: fix dimensions for perfect circle */
   overflow-hidden
 `;
-export const TextCol = tw.div`space-y-4 pl-5 pr-5`;
+export const TextCol = tw.div`space-y-4 pl-5 pr-5   
+  rounded-4xl 
+  p-5
+  m-4
+  border-7
+  border-[var(--site-foreground)]/30
+  backdrop-blur
+  dark:bg-black/10 dark:border-white/10
+  shadow-lg`;
 export const Heading = tw.h2`font-heading font-bold text-3xl md:text-5xl tracking-tight`;
 export const Subheading = tw.p`font-body text-lg md:text-xl opacity-80 m-0`;
 export const Credentials = tw.p`

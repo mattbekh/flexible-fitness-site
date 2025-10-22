@@ -5,10 +5,8 @@ export const CatchRoot = tw.section`
   items-start text-left gap-8 px-8 sm:px-12 md:px-20
   overflow-hidden
   bg-left bg-cover bg-no-repeat
-  bg-[url('/photos/image_alt.png')]
+  bg-[url('/photos/happy1.png')]
   before:absolute before:inset-0 
-  before:bg-[color-mix(in_srgb,var(--site-background)_0%,black_40%)]
-  before:backdrop-blur-[1px] before:-z-0
 `;
 
 export const Phrase = tw.h1`
