@@ -10,9 +10,11 @@ export default function AboutSectionWrapper() {
       photoUrl: "/photos/coach.jpg",
       maskUrl: "/masks/organic-blob.svg", // optional
       credentials: [
-        "NCCP Certified Coach",
-        "2009 Canadian Nationals Silver Medalist",
-        "BA in Recreation Management",
+        "National Mens and Women's Gymnastics Coach",
+        "2009 Canadian National Gymnastics Silver Medalist",
+        "BA in Recreation Management", 
+        "NCCP Certified",
+        "15+ years of experience",
       ],
       description:
         "I help people build sustainable strength and mobility with simple, effective programming that fits real life.",
